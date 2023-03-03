@@ -1,0 +1,46 @@
+
+#right-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid lightgray;
+}
+
+#form-container {
+  width: 65%;
+  max-width: 95%;
+}
+
+.container {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-container {
+  margin-bottom: 20px;
+}
+
+.container input {
+  margin: 10px;
+  display: block;
+  outline: none;
+  border: 1px solid lightgray;
+  width: 90%;
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: 2px;
+}
+
+label {
+  margin: 10px;
+  font-weight: bold;
+  font-size: .8rem;
+}
+
+#overall-container {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  min-height: 100vh;
+}

@@ -1,0 +1,30 @@
+<div id="overall-container">
+  <div id="image-container">
+    <img src="">
+  </div>
+  <div id="right-container">
+    <div id="form-container">
+      <form id="form" [formGroup]="registerForm" (ngSubmit)="submit()">
+        <label id="email-label" for="email">email*</label>
+        <div class="field-container container">
+          <input class="field" type="email" id="email" name="email" formControlName="email">
+        </div>
+        <label id="username-label" for="username">username*</label>
+        <div class="field-container container">
+          <input class="field" type="text" id="username" name="username" formControlName="username">
+        </div>
+        <label id="password-label" for="password">password*</label>
+        <div class="field-container container">
+          <input class="field" type="password" id="password" name="password" formControlName="password">
+        </div>
+        <label id="repeat-password-label" for="repeat-password">repeat password*</label>
+        <div class="field-container container">
+          <input class="field" type="password" id="repeat-password" #passwordRepeat (input)="passwordChange(passwordRepeat.value)">
+        </div>
+        <div class="button-container container">
+          <button class="button primary" type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

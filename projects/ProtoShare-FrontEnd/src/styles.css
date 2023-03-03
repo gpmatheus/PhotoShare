@@ -1,0 +1,49 @@
+* {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.button {
+  border: none;
+  border-radius: .3rem;
+  background-color: #DEDEDE;
+  color: #111;
+  padding: .5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: .9;
+  transition: .3s;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+body {
+  background: linear-gradient(60deg,rgba(233, 240, 247, .6), rgb(233, 240, 247));
+}
+
+.primary {
+  background-color: rgb(12, 123, 250);
+}
+
+.secondary {
+  background-color: rgb(231, 255, 135);
+}
+
+.error {
+  color: rgb(250, 50, 50);
+}
+
+.link {
+  color: rgba(0, 0, 0, .8);
+  transition: .6s;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: black;
+  cursor: pointer;
+}

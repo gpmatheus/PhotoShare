@@ -1,0 +1,36 @@
+<app-tool-bar>
+  <app-logo left rootLink="/"></app-logo>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" center id="search-form">
+    <input id="search-input" ngModel placeholder="Search" name="search" autocomplete="off">
+  </form>
+  <div right id="dropdown">
+    <div id="dropdown-button" (click)="shown = !shown">
+      <img id="user-image" src="../../../../assets/user-image.png">
+    </div>
+    <div id="dropdown-container">
+      <ul id="menu" *ngIf="shown">
+        <li>
+          <a><h4 class="item link">My Account</h4></a>
+        </li>
+        <li>
+          <h4 class="item link" (click)="logout()">Logout</h4>
+        </li>
+      </ul>
+    </div>
+  </div>
+</app-tool-bar>
+<div id="spacer"></div>
+<div id="content-container">
+  <div class="side-bar" [ngClass]="{opened: openedSideBar}">
+    <div id="open-button" (click)="openedSideBar = !openedSideBar">
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+    </div>
+    <div *ngIf="openedSideBar" class="options-container">
+      <a routerLink="/create-post" class="link"><h3>Add Post</h3></a>
+      <a><h3>Add Profile</h3></a>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

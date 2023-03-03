@@ -1,0 +1,29 @@
+.main-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  border-bottom: 1px solid lightgray;
+  min-height: 5vh;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.left-container {
+  justify-content: left;
+}
+
+.center-container {
+  justify-content: center;
+}
+
+.right-container {
+  justify-content: right;
+}

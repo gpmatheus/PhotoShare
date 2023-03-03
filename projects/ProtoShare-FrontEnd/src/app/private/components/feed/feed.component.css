@@ -1,0 +1,15 @@
+#content-container {
+  margin: 30px;
+}
+
+.posts-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+app-postcard {
+  margin: 20px;
+}

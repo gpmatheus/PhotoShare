@@ -1,0 +1,9 @@
+<div id="card">
+  <div *ngIf="post.profile" id="profile-name-container">
+    <h4> {{ post.profile.name }} </h4>
+  </div>
+  <img id="image" [src]="post.imageUrl | imgJwt | async">
+  <div id="post-description-container">
+    <p> {{ post.descriptions![0].content }} </p>
+  </div>
+</div>
