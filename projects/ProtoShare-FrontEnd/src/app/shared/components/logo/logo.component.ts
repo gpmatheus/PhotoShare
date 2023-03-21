@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-logo',
@@ -7,7 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LogoComponent implements OnInit {
 
-  @Input() rootLink?: string;
+  @Input() logoType!: 'full' | 'minimal';
+  @Input() linkRoute: string = '/';
 
   constructor() { }
 

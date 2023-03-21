@@ -1,1 +1,4 @@
-<p>modal works!</p>
+<div id="modal" [ngClass]="{'hide': !open}">
+  <ng-content></ng-content>
+</div>
+<div id="fade" [ngClass]="{'hide': !open}" (click)="closeModal()"></div>

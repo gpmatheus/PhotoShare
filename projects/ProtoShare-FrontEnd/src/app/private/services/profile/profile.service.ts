@@ -1,9 +1,10 @@
+import { User } from './../../../shared/models/user';
 import { environment } from './../../../../environments/environment';
-import { Profile } from './../../../shared/models/profile';
 import { Page } from './../../../shared/models/utils/page';
-import { Observable, tap } from 'rxjs';
+import { Profile } from './../../../shared/models/profile';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, Observable, tap, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,22 @@ export class ProfileService {
     return this.http.get<Profile>(`${environment.apiUrl}/profiles/${profileId}`).pipe(
       tap(console.log)
     )
+  }
+
+  createProfile(profile: {name: string, about: string, profileImage: Blob}): Observable<Profile> {
+    const profileFormData = new FormData();
+    profileFormData.append('name', profile.name);
+    profileFormData.append('about', profile.about);
+    profileFormData.append('profileImage', profile.profileImage);
+    return this.http.post<Profile>(`${environment.apiUrl}/profiles`, profileFormData).pipe(
+      tap(console.log)
+    )
+  }
+
+  getUserProfiles(userId: string): Observable<Profile[]> {
+    return this.http.get<User>(`${environment.apiUrl}/users/${userId}`).pipe(
+      tap(console.log),
+      map((user: User) => user.profiles!)
+    );
   }
 }

@@ -1,10 +1,9 @@
-import { InterceptorsModule } from './../../../core/interceptors/interceptors.module';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { FeedRoutingModule } from './feed-routing.module';
 import { FeedComponent } from './feed.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -14,8 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     FeedRoutingModule,
-    SharedModule,
-    InterceptorsModule
+    SharedModule
   ]
 })
 export class FeedModule { }

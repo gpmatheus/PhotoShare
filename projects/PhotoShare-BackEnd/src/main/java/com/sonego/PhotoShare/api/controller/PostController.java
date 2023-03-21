@@ -37,6 +37,7 @@ public class PostController {
         Post post = postService.createPost(postInput.getDescription(),
                 image, postInput.getProfileId(), principal.getName());
         PostModel postModel = postWrapper.toModel(post);
+        postModel.getProfile().setPosts(null);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(postModel);
@@ -54,6 +55,14 @@ public class PostController {
         return ResponseEntity.ok(postModelPage);
     }
 
+    @GetMapping("/{postId}")
+    public ResponseEntity<PostModel> getPostById(@PathVariable UUID postId) {
+        Post post = postService.getPostById(postId);
+        PostModel postModel = postWrapper.toModel(postService.getPostById(postId));
+        postModel.getProfile().setPosts(null);
+        return ResponseEntity.ok(postModel);
+    }
+
     @GetMapping("/{userId}/all")
     public ResponseEntity<List<PostModel>> listPostsByUser(@PathVariable UUID userId,
                                                            Principal principal) {
@@ -63,21 +72,23 @@ public class PostController {
         return ResponseEntity.ok(postModels);
     }
 
-    @PutMapping("/descriptions/{postId}")
+    @PutMapping("/{postId}/changeDescription")
     public ResponseEntity<PostModel> setNewDescription(@RequestBody @NotBlank String newDescription,
                                                        @PathVariable UUID postId,
                                                        Principal principal) {
         Post post = postService.setNewDescription(newDescription, postId, principal.getName());
         PostModel postModel = postWrapper.toModel(post);
+        postModel.getProfile().setPosts(null);
         return ResponseEntity.ok(postModel);
     }
 
-    @PutMapping("/{postId}/comments")
+    @PutMapping("/{postId}/comment")
     public ResponseEntity<PostModel> commentPost(@RequestBody @NotBlank String comment,
                                                  @PathVariable UUID postId,
                                                  Principal principal) {
         Post post = postService.commentPost(comment, postId, principal.getName());
         PostModel postModel = postWrapper.toModel(post);
+        postModel.getProfile().setPosts(null);
         return ResponseEntity.ok(postModel);
     }
 }

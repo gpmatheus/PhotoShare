@@ -23,4 +23,6 @@ public class ProfileModel {
     private String profileImageUrl;
 
     private List<PostModel> posts = new ArrayList<>();
+
+    private UUID ownerId;
 }

@@ -1,3 +1,5 @@
+import { User } from './shared/models/user';
+import { AuthService } from './core/services/auth/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProtoShare-FrontEnd';
+
+  constructor(authService: AuthService) {
+    authService.login('defaultUser', 'password123').subscribe((user: User) => console.log(user));
+  }
 }

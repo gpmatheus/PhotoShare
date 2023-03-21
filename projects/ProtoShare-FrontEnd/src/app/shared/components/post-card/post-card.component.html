@@ -1,0 +1,7 @@
+<div class="card">
+  <img class="post-image" [src]="post.imageUrl | imgJwt | async" (click)="checkPost()">
+  <div class="bottom-container">
+    <app-profile-image *ngIf="showProfileImg" [imageSrc]="post.profile.profileImageUrl" (click)="checkProfile()"></app-profile-image>
+    <p class="post-description">{{ post.descriptions![post.descriptions!.length - 1].content }}</p>
+  </div>
+</div>

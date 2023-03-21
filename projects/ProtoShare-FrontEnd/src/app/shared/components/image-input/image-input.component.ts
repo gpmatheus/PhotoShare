@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-image-input',
@@ -13,13 +13,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class ImageInputComponent implements OnInit, ControlValueAccessor {
+export class ImageInputComponent implements OnInit {
 
   image: File | null = null;
 
   onChange: Function = () => {}
 
-  @Output() change = new EventEmitter<File>();
+  @Output() change = new EventEmitter<string>();
 
   constructor() { }
 
@@ -38,7 +38,12 @@ export class ImageInputComponent implements OnInit, ControlValueAccessor {
     const input = event.target as HTMLInputElement;
     this.image = input.files![0];
     this.onChange(this.image)
-    this.change.emit(this.image)
+
+    const fileReader = new FileReader();
+    fileReader.onload = e => {
+      this.change.emit(fileReader.result as string)
+    }
+    fileReader.readAsDataURL(this.image)
   }
 
 }

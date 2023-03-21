@@ -32,10 +32,14 @@ public class Post {
     @Transient
     private final int MAX_DESCRIPTION_UPDATES = 3;
     @Transient
-    private final Duration TIMEOUT_TO_UPDATE_DESCRIPTION = Duration.ofDays(3);
+//    TODO
+//    private final Duration TIMEOUT_TO_UPDATE_DESCRIPTION = Duration.ofDays(3);
+    private final Duration TIMEOUT_TO_UPDATE_DESCRIPTION = Duration.ofSeconds(3);
 
     @Transient
-    private final Duration TIMEOUT_TO_COMMENT_AGAIN = Duration.ofMinutes(15);
+//    TODO
+//    private final Duration TIMEOUT_TO_COMMENT_AGAIN = Duration.ofMinutes(15);
+    private final Duration TIMEOUT_TO_COMMENT_AGAIN = Duration.ofSeconds(5);
 
     public Description setNewDescription(String content) throws BusinessException {
         List<Description> descriptions = getDescriptions();

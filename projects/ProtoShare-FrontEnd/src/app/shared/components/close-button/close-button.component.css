@@ -1,0 +1,31 @@
+
+.button-container {
+  transition: .4s;
+  cursor: pointer;
+
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.button-container:hover {
+  background-color: rgba(190, 190, 190, 1);
+}
+
+.stripe {
+  position: absolute;
+  top: 11px;
+  left: 5px;
+  width: 15px;
+  height: 3px;
+  border-radius: 1px;
+  background-color: gray;
+}
+
+#first {
+  transform: rotate(45deg);
+}
+
+#second {
+  transform: rotate(135deg);
+}

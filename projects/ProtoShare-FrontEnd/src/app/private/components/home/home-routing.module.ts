@@ -8,24 +8,29 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: 'create-post',
-        loadChildren: () => import('../create-post/create-post.module').then(m => m.CreatePostModule)
+        path: 'results',
+        loadChildren: () => import('../results/results.module').then(m => m.ResultsModule)
       },
       {
-        path: 'search',
-        loadChildren: () => import('../search-result/search-result.module').then(m => m.SearchResultModule)
+        path: 'profile',
+        loadChildren: () => import('../profile/profile.module').then(m => m.ProfileModule)
       },
       {
-        path: 'profiles/:profileId',
-        loadChildren: () => import('../profile-display/profile-display.module').then(m => m.ProfileDisplayModule)
+        path: 'create-profile',
+        outlet: 'create',
+        loadChildren: () => import('../create-profile/create-profile.module').then(m => m.CreateProfileModule)
       },
       {
-        // path: 'feed',
+        path: 'post',
+        outlet: 'post',
+        loadChildren: () => import('../post/post.module').then(m => m.PostModule)
+      },
+      {
         path: '',
         loadChildren: () => import('../feed/feed.module').then(m => m.FeedModule)
       },
     ]
-  },
+  }
 ];
 
 @NgModule({

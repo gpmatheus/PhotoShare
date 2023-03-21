@@ -50,6 +50,6 @@ public class UserService implements IUserService {
     public User getByUsername(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new NotFoundException("User of username " +
-                        username + " could bot be found"));
+                        username + " could not be found"));
     }
 }

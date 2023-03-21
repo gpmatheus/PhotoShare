@@ -13,28 +13,38 @@
   padding: .5rem;
   font-size: 1rem;
   font-weight: 600;
-  opacity: .9;
   transition: .3s;
+  cursor: pointer;
 }
 
-.button:hover {
-  opacity: 1;
+.button:disabled {
+  background-color: #DFDFDF;
+  color: gray;
+  cursor: default;
 }
 
-body {
-  background: linear-gradient(60deg,rgba(233, 240, 247, .6), rgb(233, 240, 247));
-}
-
-.primary {
+.primary-background {
   background-color: rgb(12, 123, 250);
 }
 
-.secondary {
+.primary-font {
+  color: rgb(12, 123, 250);
+}
+
+.secondary-background {
   background-color: rgb(231, 255, 135);
+}
+
+.secondary-font {
+  color: rgb(231, 255, 135);
 }
 
 .error {
   color: rgb(250, 50, 50);
+}
+
+.neutral-background {
+  background-color: #DEDEDE;
 }
 
 .link {
@@ -43,7 +53,33 @@ body {
   text-decoration: none;
 }
 
+.link:link {
+  text-decoration: none;
+}
+
+.link:visited {
+  text-decoration: none;
+  color: rgba(0, 0, 0, .8);
+}
+
 .link:hover {
   color: black;
   cursor: pointer;
 }
+
+.label {
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.input {
+  padding: 5px;
+  border: 1px solid lightgrey;
+  background-color: #DEDEDE;
+  border-radius: .4rem;
+  width: 150px;
+  outline: none;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

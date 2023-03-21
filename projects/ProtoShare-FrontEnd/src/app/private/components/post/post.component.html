@@ -1,0 +1,28 @@
+<app-modal *ngIf="(post$ | async) as post" [open]="open" (closed)="closeModal()">
+  <div class="post-container">
+    <app-close-button class="close" (closeEvent)="closeModal()"></app-close-button>
+    <img class="post-image" [src]="post.imageUrl | imgJwt | async">
+    <div class="data-container">
+      <div class="header">
+        <app-profile-image class="profile-image" [imageSrc]="post.profile.profileImageUrl"></app-profile-image>
+        <h3 class="profile-name"> {{ post.profile.name }} </h3>
+      </div>
+      <input #descriptionEditor
+      *ngIf="editing"
+      class="input"
+      (change)="editDescription(descriptionEditor.value)" [value]="post.descriptions![0].content">
+      <span *ngIf="!editing" class="description">
+        {{ post.descriptions![post.descriptions!.length - 1].content }} <span *ngIf="isMine" class="edit" (click)="editing = true">edit</span>
+      </span>
+      <div class="spacer-container">
+        <div class="comments-container">
+          <div class="comment" *ngFor="let comment of post.comments!">
+            <span class="cm commenter-username"> {{ comment.commenterUsername }}: </span>
+            <span class="cm comment-content"> {{ comment.content }} </span>
+          </div>
+        </div>
+        <input #commentField class="input" type="text" placeholder="comment" (change)="comment(commentField.value)">
+      </div>
+    </div>
+  </div>
+</app-modal>

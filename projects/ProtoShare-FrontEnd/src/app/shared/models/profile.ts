@@ -5,4 +5,5 @@ export interface Profile {
   about: string;
   profileImageUrl: string;
   posts?: Post[];
+  ownerId?: string;
 }

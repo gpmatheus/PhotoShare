@@ -3,4 +3,5 @@ export interface Comment {
   content: string;
   commentingDate: Date;
   commenterId: string;
+  commenterUsername: string;
 }

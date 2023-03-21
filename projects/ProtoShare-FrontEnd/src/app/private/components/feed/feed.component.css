@@ -1,15 +1,10 @@
-#content-container {
-  margin: 30px;
-}
 
 .posts-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: center;
 }
 
-app-postcard {
-  margin: 20px;
+.card {
+  margin: 15px;
 }

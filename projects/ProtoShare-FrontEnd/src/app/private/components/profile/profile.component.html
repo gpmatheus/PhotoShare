@@ -1,0 +1,16 @@
+<div *ngIf="(profile$ | async) as profile">
+  <router-outlet (deactivate)="loadProfile()"></router-outlet>
+  <div id="header">
+    <img class="profile-image" [src]="profile.profileImageUrl | imgJwt | async">
+    <div class="info-container">
+      <h2 class="profile-name"> {{ profile.name }} </h2>
+      <p class="profile-about"> {{ profile.about }} </p>
+    </div>
+  </div>
+  <div class="posts-container">
+    <div id="add-post" *ngIf="isOwner" (click)="addPost()">
+      <h3>Add Post</h3>
+    </div>
+    <app-post-card [showProfileImg]="false" class="post" *ngFor="let post of profile.posts" [post]="post"></app-post-card>
+  </div>
+</div>

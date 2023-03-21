@@ -1,0 +1,26 @@
+<div class="content-container" *ngIf="(profilesPage$ | async) as profilesPage">
+  <div class="container results-container" *ngIf="!profilesPage.empty">
+    <div class="result" *ngFor="let profile of profilesPage.content" (click)="checkProfile(profile.id)">
+      <img class="profile-image" [src]="profile.profileImageUrl | imgJwt | async" alt="no image">
+      <h3 class="profile-name">{{ profile.name }}</h3>
+    </div>
+  </div>
+  <div class="container no-results-container" *ngIf="profilesPage.empty">
+    <h3>No results</h3>
+  </div>
+  <div class="pagination-controls" *ngIf="profilesPage.totalPages > 1">
+    <button id="previous-button" class="button"
+    (click)="changePageIndex(profilesPage.number - 1)"
+    [disabled]="profilesPage.first">
+    previous
+    </button>
+    <div class="page-index-container neutral-background">
+      <h3 class="page-index"> {{ profilesPage.number + 1 }} </h3>
+    </div>
+    <button id="next-button" class="button"
+    (click)="changePageIndex(profilesPage.number + 1)"
+    [disabled]="profilesPage.last">
+    next
+    </button>
+  </div>
+</div>

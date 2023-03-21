@@ -1,1 +1,5 @@
-<a [routerLink]="rootLink" routerLinkActive="active" ><h1 class="logo-text">PShare</h1></a>
+<a [routerLink]="linkRoute"
+class="link"
+routerLinkActive="router-link-active">
+  <h1 class="logo"> {{ logoType == 'full' ? 'PShare' : 'P' }}</h1>
+</a>

@@ -50,7 +50,14 @@ public class PostService implements IPostService {
 
     @Override
     public Page<Post> feedWithPosts(int pageIndex, int pageSize) {
-        return postRepository.getRandomPosts(PageRequest.of(pageIndex, pageSize));
+//        return postRepository.getRandomPosts(PageRequest.of(pageIndex, pageSize));
+        return postRepository.findAll(PageRequest.of(pageIndex, pageSize));
+    }
+
+    @Override
+    public Post getPostById(UUID postId) {
+        return postRepository.findById(postId)
+                .orElseThrow(() -> new NotFoundException("Post of id " + postId + " could not be found"));
     }
 
     @Override

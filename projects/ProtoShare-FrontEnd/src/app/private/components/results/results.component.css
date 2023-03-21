@@ -1,0 +1,89 @@
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 35px;
+  border: 1px solid lightgray;
+  width: 200px;
+  min-width: 20vw;
+  overflow: hidden;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.result * {
+  margin: 10px;
+}
+
+.result:hover {
+  background-color: lightgray;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.results-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.no-results-container {
+  flex: 1 1 0;
+  padding: 2rem;
+}
+
+.container {
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.profile-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pagination-controls {
+  display: flex;
+}
+
+.button {
+  width: 100px;
+}
+
+.page-index {
+  width: 60px;
+  text-align: center;
+}
+
+#previous-button {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#next-button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.page-index-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid lightgray;
+  border-right: 2px solid lightgray;
+}

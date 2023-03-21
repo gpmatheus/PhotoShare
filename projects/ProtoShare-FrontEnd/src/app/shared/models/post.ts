@@ -1,6 +1,6 @@
 import { Profile } from './profile';
-import { Comment } from './comment';
 import { Description } from './description';
+import { Comment } from './comment'
 export interface Post {
   id: string;
   imageUrl: string;

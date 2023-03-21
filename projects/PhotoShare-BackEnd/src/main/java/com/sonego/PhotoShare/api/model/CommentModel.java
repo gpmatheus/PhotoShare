@@ -17,4 +17,6 @@ public class CommentModel {
     private OffsetDateTime commentingDate;
 
     private UUID commenterId;
+
+    private String commenterUsername;
 }

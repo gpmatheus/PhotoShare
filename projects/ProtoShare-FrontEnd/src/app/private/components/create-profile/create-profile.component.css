@@ -1,0 +1,34 @@
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  width: 500px;
+  max-width: 100%;
+}
+
+textarea {
+  height: 100px;
+}
+
+.input {
+  width: 100%;
+}
+
+.image-input,
+.input,
+.image {
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.image {
+  border: 1px solid lightgray;
+}
+
+.buttons-container .button {
+  margin: 5px;
+}

@@ -1,13 +1,8 @@
-.logo-text {
+.logo {
   font-weight: bold;
   font-size: 2.5rem;
   background-image: linear-gradient(60deg, cyan, purple);
   text-align: center;
-  width: 150px;
   color: transparent;
   background-clip: text;
-}
-
-a:link {
-  text-decoration: none;
 }

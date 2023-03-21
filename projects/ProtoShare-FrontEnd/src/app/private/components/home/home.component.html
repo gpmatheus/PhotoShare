@@ -1,36 +1,35 @@
-<app-tool-bar>
-  <app-logo left rootLink="/"></app-logo>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)" center id="search-form">
-    <input id="search-input" ngModel placeholder="Search" name="search" autocomplete="off">
-  </form>
-  <div right id="dropdown">
-    <div id="dropdown-button" (click)="shown = !shown">
-      <img id="user-image" src="../../../../assets/user-image.png">
+<div class="full-page">
+  <div class="side"></div>
+  <aside [ngClass]="{'hidden': !closedSidebar}" class="sb side closed-sidebar">
+    <div *ngIf="closedSidebar" class="sidebar-content">
+      <app-menu-icon class="option" (click)="toggleSidebar()"></app-menu-icon>
+      <app-logo class="option" logoType="minimal"></app-logo>
     </div>
-    <div id="dropdown-container">
-      <ul id="menu" *ngIf="shown">
-        <li>
-          <a><h4 class="item link">My Account</h4></a>
-        </li>
-        <li>
-          <h4 class="item link" (click)="logout()">Logout</h4>
-        </li>
-      </ul>
+  </aside>
+  <aside [ngClass]="{'closed': closedSidebar, 'hidden': closedSidebar}" class="sb sidebar">
+    <div *ngIf="!closedSidebar" class="sidebar-content">
+      <div class="sidebar-header">
+        <app-logo class="option" logoType="full"></app-logo>
+        <app-menu-icon class="option" (click)="toggleSidebar()"></app-menu-icon>
+      </div>
+      <a class="link" [routerLink]="[{ outlets: { create: ['create-profile'] }}]">
+        <h2 class="create-profile">Create profile</h2>
+      </a>
+      <div class="profiles-container" *ngIf="(userProfiles$ | async) as userProfiles">
+        <div class="profile" *ngFor="let profile of userProfiles">
+          <app-profile-image [imageSrc]="profile.profileImageUrl"></app-profile-image>
+          <a class="link" [routerLink]="['profile', profile.id]"><h4> {{ profile.name }} </h4></a>
+        </div>
+      </div>
     </div>
+  </aside>
+  <div class="content">
+    <form #form="ngForm" class="search-header" (onSubmit)="search(searchInput.value)">
+      <input #searchInput class="search search-input" type="search">
+      <button class="search search-button button" (click)="search(searchInput.value)">Search</button>
+    </form>
+    <router-outlet></router-outlet>
+    <router-outlet name="create"></router-outlet>
+    <router-outlet name="post"></router-outlet>
   </div>
-</app-tool-bar>
-<div id="spacer"></div>
-<div id="content-container">
-  <div class="side-bar" [ngClass]="{opened: openedSideBar}">
-    <div id="open-button" (click)="openedSideBar = !openedSideBar">
-      <div class="stripe"></div>
-      <div class="stripe"></div>
-      <div class="stripe"></div>
-    </div>
-    <div *ngIf="openedSideBar" class="options-container">
-      <a routerLink="/create-post" class="link"><h3>Add Post</h3></a>
-      <a><h3>Add Profile</h3></a>
-    </div>
-  </div>
-  <router-outlet></router-outlet>
 </div>

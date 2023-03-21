@@ -21,4 +21,30 @@ export class PostService {
       tap(console.log)
     )
   }
+
+  createPost(post: {description: string, image: Blob, profileId: string}): Observable<Post> {
+    const postFormData = new FormData();
+    postFormData.append("description", post.description);
+    postFormData.append("image", post.image);
+    postFormData.append("profileId", post.profileId);
+    return this.http.post<Post>(`${environment.apiUrl}/posts`, postFormData)
+  }
+
+  getPostById(postId: string): Observable<Post> {
+    return this.http.get<Post>(`${environment.apiUrl}/posts/${postId}`).pipe(
+      tap(console.log)
+    )
+  }
+
+  commentPost(comment: string, postId: string): Observable<Post> {
+    return this.http.put<Post>(`${environment.apiUrl}/posts/${postId}/comment`, comment).pipe(
+      tap(console.log)
+    )
+  }
+
+  editDescription(newDescription: string, postId: string): Observable<Post> {
+    return this.http.put<Post>(`${environment.apiUrl}/posts/${postId}/changeDescription`, newDescription).pipe(
+      tap(console.log)
+    )
+  }
 }

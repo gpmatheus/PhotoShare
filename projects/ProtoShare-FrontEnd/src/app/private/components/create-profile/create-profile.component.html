@@ -1,0 +1,14 @@
+<app-modal [open]="open">
+  <form #form="ngForm" class="profile-form" [formGroup]="profileForm" (ngSubmit)="createProfile()">
+    <img class="image" *ngIf="profileImage" [src]="profileImage" alt="No image">
+    <app-image-input class="image-input" formControlName="profileImage" (change)="profileImage = $event"></app-image-input>
+    <label class="label" for="name">Name</label>
+    <input class="input" type="text" id="name" formControlName="name">
+    <label class="label" for="about">About</label>
+    <textarea class="input" type="text" id="about" formControlName="about"></textarea>
+    <div class="buttons-container">
+      <button class="button primary-background" type="submit" [disabled]="!profileForm.valid">Create</button>
+      <button class="button" (click)="cancelCreation()" type="button">Cancel</button>
+    </div>
+  </form>
+</app-modal>

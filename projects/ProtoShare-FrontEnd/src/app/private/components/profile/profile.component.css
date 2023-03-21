@@ -1,0 +1,50 @@
+#header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  min-width: 10vw;
+  min-height: 10vw;
+  object-fit: cover;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  margin: 15px;
+}
+
+.info-container > * {
+  margin: 15px;
+}
+
+.posts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.posts-container > * {
+  margin: 15px;
+}
+
+#add-post {
+  width: 200px;
+  height: 200px;
+  max-height: 15vw;
+  border: 1px solid lightgray;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  cursor: pointer;
+}
+
+#add-post:hover {
+  background-color: #DEDEDE;
+}

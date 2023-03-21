@@ -682,7 +682,12 @@ public class Config {
             image.setExtension("JPG");
             image.setContentType("image/jpeg");
 
-            postService.createPost("description", image, id4, userDetails);
+            Post pst = postService.createPost("description with comment", image, id4, userDetails);
+
+//            create comments
+
+//            1
+            postService.commentPost("é um post muito bom", pst.getId(), "defaultUser");
 
         };
     }

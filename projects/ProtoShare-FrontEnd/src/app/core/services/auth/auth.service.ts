@@ -1,10 +1,10 @@
-import { Router } from '@angular/router';
-import { UserService } from './../user/user.service';
 import { User } from './../../../shared/models/user';
 import { environment } from './../../../../environments/environment';
-import { Observable, map, BehaviorSubject, tap, catchError, ObservableInput, of } from 'rxjs';
+import { Router } from '@angular/router';
+import { UserService } from './../user/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, catchError, map, Observable, ObservableInput, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

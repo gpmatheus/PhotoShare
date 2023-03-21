@@ -1,0 +1,12 @@
+<app-modal [open]="open">
+  <form #form="ngForm" class="post-form" [formGroup]="postForm" (ngSubmit)="createPost()">
+    <img class="image" *ngIf="postImage" [src]="postImage" alt="No image">
+    <app-image-input class="image-input" formControlName="image" (change)="postImage = $event"></app-image-input>
+    <label class="label" for="description">Description</label>
+    <textarea class="input" type="text" id="description" formControlName="description"></textarea>
+    <div class="buttons-container">
+      <button class="button primary-background" type="submit" [disabled]="!postForm.valid">Create</button>
+      <button class="button" (click)="cancelCreation()" type="button">Cancel</button>
+    </div>
+  </form>
+</app-modal>

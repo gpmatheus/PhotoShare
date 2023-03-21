@@ -15,6 +15,8 @@ public interface IPostService {
 
     public Page<Post> feedWithPosts(int pageIndex, int pageSize);
 
+    public Post getPostById(UUID postId);
+
 //    public Page<Post> listPosts(int pageSize, int pageIndex);
     public List<Post> listPostsByUser(UUID userId, String loggedUsername);
 

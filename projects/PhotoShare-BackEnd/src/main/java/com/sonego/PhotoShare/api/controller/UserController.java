@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -24,8 +25,13 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UserModel> getUserById(@PathVariable UUID id) {
-        UserModel user = userWrapper.toModel(userService.getUserById(id));
-        return ResponseEntity.ok(user);
+        User user = userService.getUserById(id);
+        UserModel userModel = userWrapper.toModel(user);
+        userModel.getProfiles().forEach(profile -> {
+            profile.setPosts(null);
+            profile.setOwnerId(null);
+        });
+        return ResponseEntity.ok(userModel);
     }
 
     @PutMapping("/setAdmin/{userId}")

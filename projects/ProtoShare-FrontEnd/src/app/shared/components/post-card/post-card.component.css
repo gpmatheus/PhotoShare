@@ -1,0 +1,25 @@
+
+.card {
+  width: 280px;
+  height: 280px;
+}
+
+.post-image {
+  width: 100%;
+  cursor: pointer;
+}
+
+.post-description {
+  text-overflow: ellipsis;
+}
+
+.bottom-container {
+  display: flex;
+  align-items: top;
+  height: 80px;
+  overflow: hidden;
+}
+
+.bottom-container > * {
+  margin: 10px;
+}

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/auth")
@@ -32,8 +33,8 @@ public class AuthenticationController {
         String token = authenticationService
                 .authenticate(authenticationInput.getUsername(), authenticationInput.getPassword());
         UserModel userModel = userWrapper.toModel(userService.getByUsername(authenticationInput.getUsername()));
-        userModel.setToken(token);
         userModel.setProfiles(null);
+        userModel.setToken(token);
         return ResponseEntity.ok(userModel);
     }
 

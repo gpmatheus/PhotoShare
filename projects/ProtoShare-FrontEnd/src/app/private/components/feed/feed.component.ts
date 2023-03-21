@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Page } from './../../../shared/models/utils/page';
 import { PostService } from './../../services/post/post.service';
 import { BehaviorSubject, map, reduce, tap } from 'rxjs';
@@ -15,7 +16,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   index$ = new BehaviorSubject<number>(0);
   maxIndex!: number;
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit(): void {
     this.index$.subscribe(index => {
@@ -39,7 +40,7 @@ export class FeedComponent implements OnInit, OnDestroy {
 }
 
   private loadPosts(index: number): void {
-    this.postService.feedWithPosts(10, index).pipe(
+    this.postService.feedWithPosts(15, index).pipe(
       tap((value: Page<Post>) => {
         this.maxIndex = value.totalPages - 1;
       }),
