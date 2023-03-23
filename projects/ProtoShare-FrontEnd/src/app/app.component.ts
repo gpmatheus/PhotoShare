@@ -10,7 +10,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ProtoShare-FrontEnd';
 
-  constructor(authService: AuthService) {
-    authService.login('defaultUser', 'password123').subscribe((user: User) => console.log(user));
-  }
+  constructor(authService: AuthService) {}
 }

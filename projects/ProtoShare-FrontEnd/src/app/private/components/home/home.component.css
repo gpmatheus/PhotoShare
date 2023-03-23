@@ -68,8 +68,15 @@
   margin-bottom: 15px;
 }
 
-.search-header {
+.header {
   min-height: 30px;
+  display: flex;
+  justify-content: center;
+  flex: 1 1 0;
+}
+
+.search-header {
+  min-height: 100%;
   display: flex;
   justify-content: center;
   flex: 1 1 0;
@@ -85,6 +92,27 @@
   outline: none;
   border: 1px solid lightgray;
   border-radius: .7rem;
+}
+
+.dropdown {
+  position: fixed;
+  right: 10px;
+  border-radius: .5rem;
+  box-shadow: 0px 0px 2px 2px lightgray;
+  background-color: white;
+}
+
+.hidden-dropdown {
+  display: none;
+}
+
+.dropdown-option {
+  cursor: pointer;
+  margin: 10px;
+}
+
+.dropdown-option:hover {
+  text-decoration: underline;
 }
 
 .search-input {

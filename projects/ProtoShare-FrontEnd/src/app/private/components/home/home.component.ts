@@ -1,3 +1,4 @@
+import { AuthService } from './../../../core/services/auth/auth.service';
 import { ProfileService } from './../../services/profile/profile.service';
 import { UserService } from './../../../core/services/user/user.service';
 import { Observable } from 'rxjs';
@@ -14,8 +15,12 @@ export class HomeComponent implements OnInit {
 
   userProfiles$!: Observable<Profile[]>;
   closedSidebar: boolean = true;
+  closedUserDropdown: boolean = true;
 
-  constructor(private router: Router, private userService: UserService, private profileService: ProfileService) { }
+  constructor(private router: Router,
+    private userService: UserService,
+    private profileService: ProfileService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.userProfiles$ = this.profileService.getUserProfiles(this.userService.getUser!.id);
@@ -32,5 +37,13 @@ export class HomeComponent implements OnInit {
         queryParams: { search: text }
       })
     }
+  }
+
+  toggleDropdown(): void {
+    this.closedUserDropdown = !this.closedUserDropdown;
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

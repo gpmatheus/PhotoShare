@@ -24,10 +24,19 @@
     </div>
   </aside>
   <div class="content">
-    <form #form="ngForm" class="search-header" (onSubmit)="search(searchInput.value)">
-      <input #searchInput class="search search-input" type="search">
-      <button class="search search-button button" (click)="search(searchInput.value)">Search</button>
-    </form>
+    <div class="header">
+      <form #form="ngForm" class="search-header" (onSubmit)="search(searchInput.value)">
+        <input #searchInput class="search search-input" type="search">
+        <button class="search search-button button" (click)="search(searchInput.value)">Search</button>
+      </form>
+      <div class="user-dropdown">
+        <app-profile-image imageSrc="../../../../assets/user-image.png" (click)="toggleDropdown()"></app-profile-image>
+        <div class="dropdown" [ngClass]="{'hidden-dropdown': closedUserDropdown}">
+          <div class="dropdown-option">My account</div>
+          <div class="dropdown-option" (click)="logout()">Logout</div>
+        </div>
+      </div>
+    </div>
     <router-outlet></router-outlet>
     <router-outlet name="create"></router-outlet>
     <router-outlet name="post"></router-outlet>

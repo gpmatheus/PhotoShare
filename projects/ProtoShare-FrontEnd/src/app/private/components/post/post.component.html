@@ -10,7 +10,7 @@
       <input #descriptionEditor
       *ngIf="editing"
       class="input"
-      (change)="editDescription(descriptionEditor.value)" [value]="post.descriptions![0].content">
+      (change)="editDescription(descriptionEditor.value)" [value]="post.descriptions![post.descriptions!.length - 1].content">
       <span *ngIf="!editing" class="description">
         {{ post.descriptions![post.descriptions!.length - 1].content }} <span *ngIf="isMine" class="edit" (click)="editing = true">edit</span>
       </span>
