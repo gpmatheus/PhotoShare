@@ -8,7 +8,7 @@ import java.io.*;
 @Component
 public class ImageFileService implements IImageFileService {
 
-    private static final String IMAGES_PATH = "D:/photos/";
+    private static final String IMAGES_PATH = "src/photos/";
 
     @Override
     public String storeImageFile(Image image) throws IOException {
