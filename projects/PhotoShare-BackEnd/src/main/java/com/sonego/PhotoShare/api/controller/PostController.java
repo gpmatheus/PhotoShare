@@ -58,7 +58,7 @@ public class PostController {
     @GetMapping("/{postId}")
     public ResponseEntity<PostModel> getPostById(@PathVariable UUID postId) {
         Post post = postService.getPostById(postId);
-        PostModel postModel = postWrapper.toModel(postService.getPostById(postId));
+        PostModel postModel = postWrapper.toModel(post);
         postModel.getProfile().setPosts(null);
         return ResponseEntity.ok(postModel);
     }
